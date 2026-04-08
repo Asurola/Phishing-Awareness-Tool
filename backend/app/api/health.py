@@ -35,9 +35,8 @@ def health_check():
         scenarios_count = Scenario.query.count()
 
         # TODO (Phase 2): Check whether the ML model is actually loaded
-        # from ..services.ml_classifier import is_model_loaded
-        # model_loaded = is_model_loaded()
-        model_loaded = False  # Placeholder until model is trained
+        from ..services.ml_classifier import is_model_loaded
+        model_loaded = is_model_loaded()
 
         return jsonify({
             "status": "ok",

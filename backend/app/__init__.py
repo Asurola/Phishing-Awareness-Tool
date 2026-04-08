@@ -48,7 +48,10 @@ def create_app(env: str = "development") -> Flask:
     app.register_blueprint(detection_bp, url_prefix="/api")
     app.register_blueprint(education_bp, url_prefix="/api")
 
-    # Create database tables if they don't exist
+    # Load ML model into memory at startup
+    from .services.ml_classifier import load_model
+    load_model()
+
     with app.app_context():
         db.create_all()
 
