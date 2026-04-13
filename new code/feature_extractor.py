@@ -10,12 +10,12 @@ mirror the notebook exactly.
 
 Feature groups (25 engineered features total):
   - Header features (5):  sender/reply mismatch, SPF/DKIM, received hops,
-                           display-name spoofing
+                          display-name spoofing
   - Body features (11):   urgency keywords, HTML signals, URL counts,
-                           vocabulary stats, credential/financial keywords
+                          vocabulary stats, credential/financial keywords
   - URL features (8):     IP-based URLs, @ symbol, length, dot count,
-                           HTTPS, subdomain depth, suspicious TLD,
-                           unique external domain count
+                          HTTPS, subdomain depth, suspicious TLD,
+                          unique external domain count
 
 On top of these, the ML classifier also appends 100 TF-IDF subject
 features and 200 TF-IDF body features, for a total of 322 features —
