@@ -1,5 +1,5 @@
 """
-seed_scenarios.py — Database seeding script for educational scenarios.
+seed_scenarios.py - Database seeding script for educational scenarios.
 
 Populates the scenarios table with a set of labelled phishing and legitimate
 email examples spanning beginner, intermediate, and advanced difficulty levels.
@@ -7,7 +7,7 @@ email examples spanning beginner, intermediate, and advanced difficulty levels.
 Run this script once after initialising the database:
     python seed_scenarios.py
 
-It is idempotent — running it multiple times will not create duplicate
+It is idempotent - running it multiple times will not create duplicate
 scenarios (it checks for existing data before inserting).
 """
 
@@ -29,8 +29,8 @@ SCENARIOS = [
     # ── BEGINNER (6 scenarios) ──────────────────────────────────────────
     {
         "title": "Nigerian Prince Lottery Win",
-        "difficulty": "beginner",
-        "category": "advance_fee_fraud",
+        "difficulty": "Beginner",
+        "category": "Advance Fee",
         "is_phishing": True,
         "email_content": """From: prince.ibrahim@yahoo.com
 To: victim@example.com
@@ -54,7 +54,7 @@ Prince Ibrahim Al-Hassan
 Royal Palace of Lagos
 """,
         "indicators": json.dumps([
-            "Advance fee fraud — asking for $500 processing fee",
+            "Advance fee fraud - asking for $500 processing fee",
             "Unrealistic prize claim from a stranger",
             "Free email address (yahoo.com) for supposed royalty",
             "Urgency language: 'expires in 48 HOURS'",
@@ -74,9 +74,9 @@ Royal Palace of Lagos
         ]),
     },
     {
-        "title": "Fake Prize Notification",
-        "difficulty": "beginner",
-        "category": "credential_harvesting",
+        "title": "Prize Notification",
+        "difficulty": "Beginner",
+        "category": "Credential Harvesting",
         "is_phishing": True,
         "email_content": """From: prizes@mega-lottery-winners.tk
 To: you@example.com
@@ -96,7 +96,7 @@ The Mega Lottery Team
 """,
         "indicators": json.dumps([
             "Suspicious .tk domain (free, commonly used for phishing)",
-            "You didn't enter any lottery — unsolicited prize notification",
+            "You didn't enter any lottery - unsolicited prize notification",
             "Urgency: '24 hours only'",
             "Requests personal details on an untrusted site",
             "Generic greeting: 'Dear Lucky Winner'",
@@ -115,9 +115,9 @@ The Mega Lottery Team
         ]),
     },
     {
-        "title": "PayPal Account Locked — Verify Now",
-        "difficulty": "beginner",
-        "category": "credential_harvesting",
+        "title": "PayPal Account Locked - Verify Now",
+        "difficulty": "Beginner",
+        "category": "Credential Harvesting",
         "is_phishing": True,
         "email_content": """From: security@paypa1-support.com
 To: customer@example.com
@@ -152,20 +152,20 @@ PayPal Security Team
         "explanation": (
             "PayPal would NEVER ask for your password, credit card CVV, or "
             "Social Security Number via email. The sender domain 'paypa1-support.com' "
-            "uses a '1' to impersonate 'paypal' — this is called typosquatting. "
+            "uses a '1' to impersonate 'paypal' - this is called typosquatting. "
             "The threat of permanent suspension is designed to panic you into complying."
         ),
         "learning_points": json.dumps([
             "Legitimate services NEVER ask for passwords via email.",
-            "Check URLs carefully — '1' replacing 'l' is a typosquatting technique.",
-            "If unsure, log in directly at paypal.com — never via email links.",
+            "Check URLs carefully - '1' replacing 'l' is a typosquatting technique.",
+            "If unsure, log in directly at paypal.com - never via email links.",
             "No legitimate company needs your Social Security Number for account verification.",
         ]),
     },
     {
-        "title": "Spoofed Amazon Security Alert",
-        "difficulty": "beginner",
-        "category": "credential_harvesting",
+        "title": "Amazon Security Alert",
+        "difficulty": "Beginner",
+        "category": "Credential Harvesting",
         "is_phishing": True,
         "email_content": """From: no-reply@amaz0n-security.com
 To: shopper@example.com
@@ -192,7 +192,7 @@ Amazon Security Centre
         ]),
         "explanation": (
             "This email impersonates Amazon using 'amaz0n' (with a zero) instead "
-            "of 'amazon'. Amazon sends genuine alerts from @amazon.com — not "
+            "of 'amazon'. Amazon sends genuine alerts from @amazon.com - not "
             "third-party security domains. Amazon would also never threaten to "
             "delete your account within 2 hours."
         ),
@@ -200,13 +200,13 @@ Amazon Security Centre
             "Always check the sender's full email address domain.",
             "Legitimate Amazon emails come from @amazon.com only.",
             "Character substitution (0 for o, 1 for l) is a common spoofing technique.",
-            "Go directly to amazon.com to check account security — never follow email links.",
+            "Go directly to amazon.com to check account security - never follow email links.",
         ]),
     },
     {
-        "title": "Genuine GitHub Password Reset",
-        "difficulty": "beginner",
-        "category": "legitimate",
+        "title": "GitHub Password Reset",
+        "difficulty": "Beginner",
+        "category": "Credential Harvesting",
         "is_phishing": False,
         "email_content": """From: noreply@github.com
 To: developer@example.com
@@ -220,7 +220,7 @@ Click the button below to create a new password:
 https://github.com/password_reset?token=abc123xyz&expires=1h
 
 This link will expire in 1 hour. If you didn't request a password reset,
-you can safely ignore this email — your password will not be changed.
+you can safely ignore this email - your password will not be changed.
 
 Thanks,
 The GitHub Team
@@ -244,9 +244,9 @@ GitHub, Inc.
         ]),
     },
     {
-        "title": "Fake IT Helpdesk Password Expiry",
-        "difficulty": "beginner",
-        "category": "credential_harvesting",
+        "title": "IT Helpdesk Password Expiry",
+        "difficulty": "Beginner",
+        "category": "Credential Harvesting",
         "is_phishing": True,
         "email_content": """From: helpdesk@it-support-helpdesk.com
 To: employee@company.com
@@ -264,7 +264,7 @@ Enter your current password to proceed with renewal.
 IT Helpdesk Support
 """,
         "indicators": json.dumps([
-            "Third-party domain 'it-support-helpdesk.com' — not internal company domain",
+            "Third-party domain 'it-support-helpdesk.com' - not internal company domain",
             "Asks for current password (legitimate systems never do this)",
             "Urgency: 'expires TODAY at 5:00 PM'",
             "Generic greeting: 'Dear User'",
@@ -272,7 +272,7 @@ IT Helpdesk Support
         "explanation": (
             "A real IT helpdesk email would come from your company's own domain, "
             "not a generic third-party site. Password reset systems never ask for "
-            "your CURRENT password — they let you create a new one. This is designed "
+            "your CURRENT password - they let you create a new one. This is designed "
             "to steal your existing credentials."
         ),
         "learning_points": json.dumps([
@@ -284,9 +284,9 @@ IT Helpdesk Support
 
     # ── INTERMEDIATE (5 scenarios) ──────────────────────────────────────
     {
-        "title": "Clone Phishing — Fake Order Confirmation",
-        "difficulty": "intermediate",
-        "category": "clone_phishing",
+        "title": "Order Confirmation",
+        "difficulty": "Intermediate",
+        "category": "Clone Phishing",
         "is_phishing": True,
         "email_content": """From: orders@amazon.com.order-confirm.net
 To: customer@example.com
@@ -308,13 +308,13 @@ http://amazon.com.order-confirm.net/cancel-order
 Thank you for shopping with Amazon.
 """,
         "indicators": json.dumps([
-            "The From domain is 'amazon.com.order-confirm.net' — the real domain is 'order-confirm.net', not amazon.com",
+            "The From domain is 'amazon.com.order-confirm.net' - the real domain is 'order-confirm.net', not amazon.com",
             "All links go to order-confirm.net, not amazon.com",
             "Clone of a genuine Amazon shipping notification format",
             "Cancel/refund link designed to capture credentials",
         ]),
         "explanation": (
-            "This is a clone phishing attack — it copies the style and format of a "
+            "This is a clone phishing attack - it copies the style and format of a "
             "real Amazon shipping email. The critical giveaway is the sender domain: "
             "'amazon.com.order-confirm.net'. The real domain (after the last dot before "
             "the TLD) is 'order-confirm.net'. The 'amazon.com' part is just a subdomain "
@@ -323,18 +323,18 @@ Thank you for shopping with Amazon.
         "learning_points": json.dumps([
             "Read the sender domain from right to left: TLD → main domain → subdomains.",
             "'amazon.com.evil.net' is owned by evil.net, not amazon.com.",
-            "Check every link by hovering — they should all go to amazon.com.",
-            "If unexpected, verify orders directly at amazon.com — don't click email links.",
+            "Check every link by hovering - they should all go to amazon.com.",
+            "If unexpected, verify orders directly at amazon.com - don't click email links.",
         ]),
     },
     {
-        "title": "Fake Invoice — Finance Department",
-        "difficulty": "intermediate",
-        "category": "business_email_compromise",
+        "title": "Finance Department Invoice",
+        "difficulty": "Intermediate",
+        "category": "Business Email",
         "is_phishing": True,
         "email_content": """From: accounts@fast-invoice-solutions.com
 To: finance@targetcompany.com
-Subject: Invoice #INV-2024-0847 — Payment Due
+Subject: Invoice #INV-2024-0847 - Payment Due
 
 Dear Finance Team,
 
@@ -355,7 +355,7 @@ Accounts Manager
 Fast Business Solutions Ltd
 """,
         "indicators": json.dumps([
-            "Unsolicited invoice — recipient may not recognise this vendor",
+            "Unsolicited invoice - recipient may not recognise this vendor",
             "Requests transfer to a new/updated bank account (classic BEC tactic)",
             "Third-party invoicing domain, not a recognisable supplier",
             "Pressure: payment due in 7 days",
@@ -363,24 +363,24 @@ Fast Business Solutions Ltd
         "explanation": (
             "Business Email Compromise (BEC) fraud often involves fake invoices with "
             "'updated' bank details. Always verify bank detail changes via a phone call "
-            "to a known number — NEVER rely solely on an email. Finance teams should "
+            "to a known number - NEVER rely solely on an email. Finance teams should "
             "have a standing process to verify any new or changed payment details."
         ),
         "learning_points": json.dumps([
-            "Always verify changed bank details via a known phone number — not email.",
+            "Always verify changed bank details via a known phone number - not email.",
             "Implement a 4-eyes (dual authorisation) policy for outgoing payments.",
             "Be suspicious of unsolicited invoices from unrecognised vendors.",
-            "BEC attacks often involve very professional-looking emails — formatting is not proof of legitimacy.",
+            "BEC attacks often involve very professional-looking emails - formatting is not proof of legitimacy.",
         ]),
     },
     {
-        "title": "Spoofed IT Department — VPN Credentials",
-        "difficulty": "intermediate",
-        "category": "credential_harvesting",
+        "title": "IT Department VPN Credentials",
+        "difficulty": "Intermediate",
+        "category": "Credential Harvesting",
         "is_phishing": True,
         "email_content": """From: it-helpdesk@company-it-support.com
 To: staff@targetcompany.com
-Subject: Mandatory VPN System Update — Action Required by Friday
+Subject: Mandatory VPN System Update - Action Required by Friday
 
 Hello,
 
@@ -399,7 +399,7 @@ Target Company
 """,
         "indicators": json.dumps([
             "Sender domain 'company-it-support.com' is a third-party domain, not internal",
-            "VPN portal on 'company-it-support.com' — not the company's own domain",
+            "VPN portal on 'company-it-support.com' - not the company's own domain",
             "Asks for Active Directory (network) credentials",
             "Deadline threat: 'loss of remote access by Friday'",
         ]),
@@ -418,9 +418,9 @@ Target Company
         ]),
     },
     {
-        "title": "URL Shortener Phishing — Fake Dropbox Link",
-        "difficulty": "intermediate",
-        "category": "credential_harvesting",
+        "title": "Dropbox Link",
+        "difficulty": "Intermediate",
+        "category": "Credential Harvesting",
         "is_phishing": True,
         "email_content": """From: sharing@dropbox-notify.com
 To: colleague@example.com
@@ -430,7 +430,7 @@ Hi,
 
 John Smith has shared a document with you on Dropbox:
 
-"Q4 Financial Report — CONFIDENTIAL.pdf"
+"Q4 Financial Report - CONFIDENTIAL.pdf"
 
 Click to view: https://bit.ly/3xPhish9
 
@@ -445,26 +445,26 @@ The Dropbox Team
             "Shared file name invokes curiosity (financial report, confidential)",
         ]),
         "explanation": (
-            "Legitimate Dropbox sharing links go directly to dropbox.com — they are "
+            "Legitimate Dropbox sharing links go directly to dropbox.com - they are "
             "never hidden behind URL shorteners. The sender domain 'dropbox-notify.com' "
             "is not affiliated with Dropbox. The bit.ly link could redirect anywhere, "
             "including a credential-harvesting login page."
         ),
         "learning_points": json.dumps([
-            "Expand URL shorteners before clicking — use a tool like checkshorturl.com.",
+            "Expand URL shorteners before clicking - use a tool like checkshorturl.com.",
             "Legitimate Dropbox links always go to dropbox.com or dl.dropboxusercontent.com.",
             "Be suspicious of shared file notifications from senders you don't recognise.",
             "Hover over links to check the real URL before clicking.",
         ]),
     },
     {
-        "title": "Genuine Monthly Bank Statement",
-        "difficulty": "intermediate",
-        "category": "legitimate",
+        "title": "Monthly Bank Statement",
+        "difficulty": "Intermediate",
+        "category": "Bank Notification",
         "is_phishing": False,
         "email_content": """From: statements@notifications.barclays.co.uk
 To: account.holder@example.com
-Subject: Your Barclays statement is ready — February 2024
+Subject: Your Barclays statement is ready - February 2024
 
 Dear Mr Smith,
 
@@ -502,13 +502,13 @@ Registered in England. Registered No: 1026167
 
     # ── ADVANCED (5 scenarios) ──────────────────────────────────────────
     {
-        "title": "Spear Phishing — HR Budget Approval Request",
-        "difficulty": "advanced",
-        "category": "spear_phishing",
+        "title": "HR Budget Approval Request",
+        "difficulty": "Advanced",
+        "category": "Office BAU",
         "is_phishing": True,
         "email_content": """From: c.morrison@targetcompany-hq.com
 To: finance.manager@targetcompany.com
-Subject: Re: Q3 Budget Review — Urgent Approval Needed
+Subject: Re: Q3 Budget Review - Urgent Approval Needed
 
 Hi Sarah,
 
@@ -519,7 +519,7 @@ the banking deadline at 3pm today.
 Total amount: £87,500
 Please transfer to: Account 73829401, Sort Code 40-28-19
 
-I'm in back-to-back meetings until 4pm — please action this before
+I'm in back-to-back meetings until 4pm - please action this before
 the banking cut-off. I'll confirm via phone once I'm free.
 
 Thanks,
@@ -528,7 +528,7 @@ Chief Financial Officer
 Target Company
 """,
         "indicators": json.dumps([
-            "Sender domain 'targetcompany-hq.com' is slightly different from 'targetcompany.com' — a lookalike domain",
+            "Sender domain 'targetcompany-hq.com' is slightly different from 'targetcompany.com' - a lookalike domain",
             "Requests an urgent wire transfer via email (never appropriate)",
             "Pressure: 'banking deadline at 3pm today'",
             "Uses CFO's real name and plausible context (leadership meeting, Q3 budget)",
@@ -539,25 +539,25 @@ Target Company
             "it references real people (CFO Caroline Morrison), real organisational context "
             "(Q3 budget review, leadership meetings), and creates a believable time pressure. "
             "The domain 'targetcompany-hq.com' differs from the real domain by adding '-hq'. "
-            "The CFO's unavailability prevents a quick phone verification — always verify "
+            "The CFO's unavailability prevents a quick phone verification - always verify "
             "wire transfers via a second channel regardless of urgency."
         ),
         "learning_points": json.dumps([
-            "Always verify wire transfer requests via a known phone number — regardless of apparent seniority.",
+            "Always verify wire transfer requests via a known phone number - regardless of apparent seniority.",
             "Spear phishing uses research about real people and internal context to appear legitimate.",
             "A claim of unavailability is a manipulation tactic to prevent verification.",
-            "Hover over the sender's email to see the full domain — '-hq' suffix is a red flag.",
+            "Hover over the sender's email to see the full domain - '-hq' suffix is a red flag.",
             "Your company should have a policy: no wire transfers approved by email alone.",
         ]),
     },
     {
-        "title": "Whaling Attack — CEO Fraud",
-        "difficulty": "advanced",
-        "category": "whaling",
+        "title": "CEO Email",
+        "difficulty": "Advanced",
+        "category": "Higher Management BAU",
         "is_phishing": True,
         "email_content": """From: james.thornton@targetcorp-executive.com
 To: payroll@targetcorp.com
-Subject: Confidential — Payroll Adjustment Required
+Subject: Confidential - Payroll Adjustment Required
 
 Hi,
 
@@ -571,20 +571,20 @@ New Account: 92847361
 New Sort Code: 30-44-92
 
 This is extremely time-sensitive and must be handled discreetly. Please
-do not mention this to anyone — including HR — until I give further instruction.
+do not mention this to anyone - including HR - until I give further instruction.
 
 James Thornton
 CEO, TargetCorp
 """,
         "indicators": json.dumps([
             "Sender domain 'targetcorp-executive.com' differs from the real company domain",
-            "Requests secrecy — 'do not mention this to anyone including HR'",
+            "Requests secrecy - 'do not mention this to anyone including HR'",
             "Urgency: 'before end of day'",
             "Requests bank detail changes for 'confidential' reasons",
             "Impersonates the CEO with a plausible-sounding acquisition storyline",
         ]),
         "explanation": (
-            "This is a CEO fraud (whaling) attack — targeting payroll staff by impersonating "
+            "This is a CEO fraud (whaling) attack - targeting payroll staff by impersonating "
             "senior executives. The request for secrecy is the most alarming indicator: "
             "legitimate businesses never ask employees to bypass normal HR and finance controls. "
             "The urgency and 'acquisition' context are designed to make the request seem urgent "
@@ -592,15 +592,15 @@ CEO, TargetCorp
         ),
         "learning_points": json.dumps([
             "Any request to keep financial actions secret from HR or finance is a major red flag.",
-            "Payroll changes should always go through established HR processes — not direct CEO emails.",
+            "Payroll changes should always go through established HR processes - not direct CEO emails.",
             "Verify requests from executives via the company switchboard or in person.",
             "Whaling attacks research the real CEO's name, title, and business context.",
         ]),
     },
     {
-        "title": "Typosquatting — PayPa1.com Credential Harvest",
-        "difficulty": "advanced",
-        "category": "credential_harvesting",
+        "title": "PayPal.com Credential Verification",
+        "difficulty": "Advanced",
+        "category": "Credential Harvesting",
         "is_phishing": True,
         "email_content": """From: service@paypal.com
 To: paypal.user@example.com
@@ -623,40 +623,40 @@ may result in sending and receiving restrictions on your account.
 PayPal Customer Services
 """,
         "indicators": json.dumps([
-            "Link goes to 'paypa1.com' — '1' replacing 'l' (typosquatting)",
-            "The FROM address shows paypal.com but the link goes elsewhere — possible header spoofing",
+            "Link goes to 'paypa1.com' - '1' replacing 'l' (typosquatting)",
+            "The FROM address shows paypal.com but the link goes elsewhere - possible header spoofing",
             "References a real regulation (PSD2) to add false legitimacy",
-            "Personalised with real name — spear phishing element",
+            "Personalised with real name - spear phishing element",
             "Deadline: '5 March 2024' creates urgency",
         ]),
         "explanation": (
             "This is an advanced phishing attack that correctly uses your real name and "
             "references actual EU payment regulations (PSD2) to seem legitimate. The "
             "critical flaw is the link: 'paypa1.com' with a '1' instead of 'l'. The "
-            "From header can be forged — the actual indicator to check is where the "
+            "From header can be forged - the actual indicator to check is where the "
             "link goes. PayPal would only ever link to paypal.com."
         ),
         "learning_points": json.dumps([
             "Your real name in a phishing email does NOT make it legitimate.",
-            "Hover over links and read carefully — '1' vs 'l' and '0' vs 'o' are common substitutions.",
+            "Hover over links and read carefully - '1' vs 'l' and '0' vs 'o' are common substitutions.",
             "Real regulatory compliance emails never require you to click email links.",
             "Go to paypal.com directly in your browser to check for any real notifications.",
-            "Email From headers can be forged — the link URL is more reliable.",
+            "Email From headers can be forged - the link URL is more reliable.",
         ]),
     },
     {
-        "title": "Reply Chain Injection Attack",
-        "difficulty": "advanced",
-        "category": "clone_phishing",
+        "title": "Simple Email",
+        "difficulty": "Advanced",
+        "category": "Bank Details Change",
         "is_phishing": True,
         "email_content": """From: david.chen@supplier-co.net
 To: procurement@targetcompany.com
-Subject: Re: Re: Re: Purchase Order PO-2024-0483 — Delivery Confirmation
+Subject: Re: Re: Re: Purchase Order PO-2024-0483 - Delivery Confirmation
 
 Hi Rachel,
 
 Thanks for the confirmation. As discussed, we've updated our banking details
-as of 1st February — please ensure future payments use the new account below:
+as of 1st February - please ensure future payments use the new account below:
 
 Account Name:  Supplier Co Ltd
 Bank:          HSBC
@@ -675,7 +675,7 @@ Tel: +44 20 7946 0823
 From: rachel.jones@targetcompany.com
 Sent: Monday, 19 February 2024 14:32
 To: david.chen@supplier-co.net
-Subject: Re: Re: Purchase Order PO-2024-0483 — Delivery Confirmation
+Subject: Re: Re: Purchase Order PO-2024-0483 - Delivery Confirmation
 ...
 """,
         "indicators": json.dumps([
@@ -688,7 +688,7 @@ Subject: Re: Re: Purchase Order PO-2024-0483 — Delivery Confirmation
             "Reply chain injection is one of the most sophisticated phishing attacks. "
             "The attacker compromises a real email account (or spoofs one) and injects "
             "messages into ongoing business threads. The context feels completely real because "
-            "it IS part of a real conversation. The tell is the bank detail change request — "
+            "it IS part of a real conversation. The tell is the bank detail change request - "
             "always verify via phone using a number from your own records, not the email."
         ),
         "learning_points": json.dumps([
@@ -700,13 +700,13 @@ Subject: Re: Re: Purchase Order PO-2024-0483 — Delivery Confirmation
         ]),
     },
     {
-        "title": "Genuine AWS Security Alert",
-        "difficulty": "advanced",
-        "category": "legitimate",
+        "title": "AWS Security Alert",
+        "difficulty": "Advanced",
+        "category": "IT Security",
         "is_phishing": False,
         "email_content": """From: no-reply@sns.amazonaws.com
 To: devops@company.com
-Subject: [AWS] IAM Access Key Exposed — Action Required
+Subject: [AWS] IAM Access Key Exposed - Action Required
 
 Hello,
 
@@ -739,14 +739,14 @@ AWS Security Team
             "alerts when exposed credentials are detected. Legitimacy signals: SNS sender "
             "domain (@sns.amazonaws.com), all links go to amazonaws.com or aws.amazon.com, "
             "the email provides specific account details, the action taken (deactivation) "
-            "is explained, and it does NOT ask you to click a link to 'verify' — it tells "
+            "is explained, and it does NOT ask you to click a link to 'verify' - it tells "
             "you what was already done."
         ),
         "learning_points": json.dumps([
-            "Legitimate security alerts describe the specific action taken — they don't ask you to 'click to fix'.",
+            "Legitimate security alerts describe the specific action taken - they don't ask you to 'click to fix'.",
             "AWS sends genuine automated security notifications via @sns.amazonaws.com.",
             "All links in legitimate AWS emails go to amazonaws.com or aws.amazon.com.",
-            "Never commit credentials to public git repositories — use environment variables or secrets managers.",
+            "Never commit credentials to public git repositories - use environment variables or secrets managers.",
         ]),
     },
 ]
@@ -780,7 +780,7 @@ def seed_database() -> None:
         db.session.add(scenario)
 
     db.session.commit()
-    print(f"✅ Successfully seeded {len(SCENARIOS)} scenarios.")
+    print(f"Successfully seeded {len(SCENARIOS)} scenarios.")
     print(f"   Beginner:     {sum(1 for s in SCENARIOS if s['difficulty'] == 'beginner')}")
     print(f"   Intermediate: {sum(1 for s in SCENARIOS if s['difficulty'] == 'intermediate')}")
     print(f"   Advanced:     {sum(1 for s in SCENARIOS if s['difficulty'] == 'advanced')}")

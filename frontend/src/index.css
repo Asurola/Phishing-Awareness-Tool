@@ -4,13 +4,13 @@
  * Design tokens, resets, and base utility classes live here.
  */
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
-/* ─── Google Fonts ─────────────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-
 /* ─── Base Reset ────────────────────────────────────────────────────── */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -22,8 +22,10 @@ body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #0f172a;   /* slate-900 — dark navy base */
-  color: #e2e8f0;              /* slate-200 */
+  background-color: #0f172a;
+  /* slate-900 - dark navy base */
+  color: #e2e8f0;
+  /* slate-200 */
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
 }
@@ -38,13 +40,16 @@ body {
 ::-webkit-scrollbar {
   width: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: #1e293b;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #475569;
   border-radius: 3px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #64748b;
 }
@@ -130,10 +135,29 @@ body {
   box-shadow: 0 4px 12px rgba(34, 197, 94, 0.4);
 }
 
-.risk-low    { color: #22c55e; }
-.risk-medium { color: #f59e0b; }
-.risk-high   { color: #ef4444; }
+.risk-low {
+  color: #22c55e;
+}
 
-.badge-beginner     { background: #166534; color: #86efac; }
-.badge-intermediate { background: #713f12; color: #fde68a; }
-.badge-advanced     { background: #7f1d1d; color: #fca5a5; }
+.risk-medium {
+  color: #f59e0b;
+}
+
+.risk-high {
+  color: #ef4444;
+}
+
+.badge-beginner {
+  background: #166534;
+  color: #86efac;
+}
+
+.badge-intermediate {
+  background: #713f12;
+  color: #fde68a;
+}
+
+.badge-advanced {
+  background: #7f1d1d;
+  color: #fca5a5;
+}

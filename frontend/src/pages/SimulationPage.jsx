@@ -1,5 +1,5 @@
 /**
- * src/pages/SimulationPage.jsx — Interactive phishing simulation page.
+ * src/pages/SimulationPage.jsx - Interactive phishing simulation page.
  *
  * Presents users with a simulated email in a realistic email viewer and
  * asks them to identify it as phishing or legitimate.
@@ -96,9 +96,9 @@ function SimulationPage() {
                     fontWeight: 600,
                     padding: '0.25rem 0.625rem',
                     borderRadius: '1rem',
-                    ...(scenario.difficulty === 'beginner'
+                    ...(scenario.difficulty?.toLowerCase() === 'beginner'
                         ? { background: '#166534', color: '#86efac' }
-                        : scenario.difficulty === 'intermediate'
+                        : scenario.difficulty?.toLowerCase() === 'intermediate'
                             ? { background: '#713f12', color: '#fde68a' }
                             : { background: '#7f1d1d', color: '#fca5a5' }
                     ),

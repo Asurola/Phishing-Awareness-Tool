@@ -1,5 +1,5 @@
 """
-app/ml/train_model.py — ML model training script.
+app/ml/train_model.py - ML model training script.
 
 Trains phishing classifiers on labelled email/URL datasets and saves the
 best-performing model to disk for use by the live detection service.
@@ -34,8 +34,8 @@ def load_dataset(data_dir: str) -> tuple:
     Load and combine phishing/legitimate labelled datasets.
 
     Expected files in data_dir:
-      - phishing.csv  — Phishing samples with feature columns + 'label' column
-      - legitimate.csv — Legitimate samples with same format
+      - phishing.csv  - Phishing samples with feature columns + 'label' column
+      - legitimate.csv - Legitimate samples with same format
 
     Args:
         data_dir: Path to the directory containing training data files.
@@ -108,5 +108,5 @@ def save_model(model, scaler, output_path: str) -> None:
 
 
 if __name__ == "__main__":
-    print("ML training script — Phase 2 implementation pending.")
+    print("ML training script - Phase 2 implementation pending.")
     print("Run this script after implementing the training pipeline.")

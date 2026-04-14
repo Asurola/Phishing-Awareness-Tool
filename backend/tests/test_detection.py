@@ -1,5 +1,5 @@
 """
-tests/test_detection.py — Integration tests for the detection API endpoint.
+tests/test_detection.py - Integration tests for the detection API endpoint.
 
 Tests the POST /api/analyse endpoint with various email inputs,
 verifying the HTTP response structure and field types.

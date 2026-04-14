@@ -1,5 +1,5 @@
 """
-app/models/progress.py — Educational progress and scenario database models.
+app/models/progress.py - Educational progress and scenario database models.
 
 Contains two models:
   - Scenario:      A seeded phishing or legitimate email scenario used in the
@@ -25,10 +25,8 @@ class Scenario(db.Model):
         id:             Primary key, auto-incremented.
         title:          Short descriptive title (e.g. "Fake Bank Alert").
         difficulty:     Difficulty level: 'beginner', 'intermediate', or 'advanced'.
-        category:       Scenario type: 'credential_harvesting', 'spear_phishing',
-                        'whaling', 'clone_phishing', or 'legitimate'.
         email_content:  Full simulated email text (including headers where applicable).
-        is_phishing:    Ground truth label — True if phishing, False if legitimate.
+        is_phishing:    Ground truth label - True if phishing, False if legitimate.
         indicators:     JSON string listing the phishing indicators present (empty if legitimate).
         explanation:    Detailed explanation of why this is phishing or legitimate.
         learning_points: JSON string containing key takeaways for the user.
@@ -40,7 +38,6 @@ class Scenario(db.Model):
     id: int = db.Column(db.Integer, primary_key=True, autoincrement=True)
     title: str = db.Column(db.String(128), nullable=False)
     difficulty: str = db.Column(db.String(16), nullable=False)   # beginner|intermediate|advanced
-    category: str = db.Column(db.String(32), nullable=False)
     email_content: str = db.Column(db.Text, nullable=False)
     is_phishing: bool = db.Column(db.Boolean, nullable=False)
     indicators: Optional[str] = db.Column(db.Text, nullable=True)      # JSON string
@@ -67,7 +64,6 @@ class Scenario(db.Model):
             "id": self.id,
             "title": self.title,
             "difficulty": self.difficulty,
-            "category": self.category,
             "email_content": self.email_content,
         }
         if include_answer:

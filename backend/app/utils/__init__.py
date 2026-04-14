@@ -1,3 +1,3 @@
 """
-app/utils/__init__.py — Utilities package initialiser.
+app/utils/__init__.py - Utilities package initialiser.
 """

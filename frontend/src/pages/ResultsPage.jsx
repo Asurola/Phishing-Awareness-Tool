@@ -1,5 +1,5 @@
 /**
- * src/pages/ResultsPage.jsx — User learning progress dashboard.
+ * src/pages/ResultsPage.jsx - User learning progress dashboard.
  *
  * Retrieves and displays a session's learning progress from the API:
  *   - Overall accuracy and scenarios completed
@@ -64,7 +64,7 @@ function ResultsPage() {
         : overallPct >= 60
             ? '👍 Good progress! Keep practising to improve.'
             : overallPct >= 40
-                ? '📚 Getting there — review the explanations to learn the indicators.'
+                ? '📚 Getting there - review the explanations to learn the indicators.'
                 : '🚀 Keep going! Every scenario makes you safer.'
 
     return (

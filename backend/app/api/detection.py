@@ -1,5 +1,5 @@
 """
-app/api/detection.py — Detection (email analysis) API endpoint.
+app/api/detection.py - Detection (email analysis) API endpoint.
 
 Handles incoming email submissions (raw text or .eml file upload) and
 orchestrates the full analysis pipeline:
@@ -109,6 +109,6 @@ def analyse_email():
         return jsonify(response), 200
 
     except Exception as e:
-        # Don't leak internals in production — but for the FYP demo it's
+        # Don't leak internals in production - but for the FYP demo it's
         # useful to see the actual error in the response body.
         return jsonify({"error": f"Analysis failed: {str(e)}"}), 500

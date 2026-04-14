@@ -1,5 +1,5 @@
 /**
- * src/main.jsx — React application entry point.
+ * src/main.jsx - React application entry point.
  *
  * Mounts the root React component into the #root DOM element.
  * Wraps the app in BrowserRouter for client-side routing.

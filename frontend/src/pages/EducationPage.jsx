@@ -1,5 +1,5 @@
 /**
- * src/pages/EducationPage.jsx — Training hub / Education landing page.
+ * src/pages/EducationPage.jsx - Training hub / Education landing page.
  *
  * Displays:
  *   - Difficulty selector (Beginner / Intermediate / Advanced / Mixed)
@@ -18,9 +18,9 @@ import { DIFFICULTIES, SESSION_ID_KEY } from '../utils/constants'
 
 const DIFFICULTY_LABELS = {
     all: { label: 'All Levels', emoji: '🎯' },
-    beginner: { label: 'Beginner', emoji: '🟢' },
-    intermediate: { label: 'Intermediate', emoji: '🟡' },
-    advanced: { label: 'Advanced', emoji: '🔴' },
+    Beginner: { label: 'Beginner', emoji: '🟢' },
+    Intermediate: { label: 'Intermediate', emoji: '🟡' },
+    Advanced: { label: 'Advanced', emoji: '🔴' },
 }
 
 function EducationPage() {
@@ -96,18 +96,16 @@ function EducationPage() {
                                     fontWeight: 600,
                                     padding: '0.25rem 0.625rem',
                                     borderRadius: '1rem',
-                                    ...(scenario.difficulty === 'beginner'
+                                    ...(scenario.difficulty?.toLowerCase() === 'beginner'
                                         ? { background: '#166534', color: '#86efac' }
-                                        : scenario.difficulty === 'intermediate'
+                                        : scenario.difficulty?.toLowerCase() === 'intermediate'
                                             ? { background: '#713f12', color: '#fde68a' }
                                             : { background: '#7f1d1d', color: '#fca5a5' }
                                     ),
                                 }}>
                                     {scenario.difficulty}
                                 </span>
-                                <span style={{ fontSize: '0.75rem', color: '#475569', background: '#0f172a', padding: '0.25rem 0.5rem', borderRadius: '0.25rem' }}>
-                                    {scenario.category?.replace(/_/g, ' ')}
-                                </span>
+
                             </div>
                             <h3 style={{ color: '#e2e8f0', fontWeight: 600, fontSize: '1rem', margin: '0 0 1rem' }}>
                                 {scenario.title}
@@ -117,7 +115,7 @@ function EducationPage() {
                                 className="btn-primary"
                                 style={{ fontSize: '0.875rem', padding: '0.5rem 1rem', width: '100%' }}
                             >
-                                Start Scenario →
+                                Start Scenario
                             </button>
                         </div>
                     ))}

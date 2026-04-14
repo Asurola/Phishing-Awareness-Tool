@@ -1,5 +1,5 @@
 /**
- * src/components/common/Button.jsx — Reusable button component.
+ * src/components/common/Button.jsx - Reusable button component.
  *
  * Wraps a styled button with variant support (primary, danger, success, ghost).
  * Uses the CSS classes defined in index.css.

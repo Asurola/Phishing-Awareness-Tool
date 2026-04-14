@@ -1,5 +1,5 @@
 """
-app/services/feature_extractor.py — Feature extraction for the ML pipeline.
+app/services/feature_extractor.py - Feature extraction for the ML pipeline.
 
 This module is ported directly from the training notebook
 (`phishing_detection_pipeline_v2.ipynb`) to guarantee that the features
@@ -18,7 +18,7 @@ Feature groups (25 engineered features total):
                           unique external domain count
 
 On top of these, the ML classifier also appends 100 TF-IDF subject
-features and 200 TF-IDF body features, for a total of 322 features —
+features and 200 TF-IDF body features, for a total of 322 features -
 but those are applied in `ml_classifier.py` using the pre-fitted
 vectorizers, not here.
 """
@@ -33,7 +33,7 @@ import pandas as pd
 import tldextract
 
 # ─────────────────────────────────────────────────────────────────────────
-# Shared constants — must exactly match the training notebook
+# Shared constants - must exactly match the training notebook
 # ─────────────────────────────────────────────────────────────────────────
 
 URGENCY_WORDS: list[str] = [
@@ -120,7 +120,7 @@ def extract_header_features(row: dict[str, Any]) -> dict[str, int]:
     if match:
         sender_domain = match.group(1).lower()
 
-    # Reply-To domain mismatch — only triggers if both domains parseable
+    # Reply-To domain mismatch - only triggers if both domains parseable
     # and differ (a common phishing indicator where a spoofed From header
     # is paired with an attacker-controlled Reply-To address)
     reply_to_match = re.search(
@@ -131,7 +131,7 @@ def extract_header_features(row: dict[str, Any]) -> dict[str, int]:
         bool(sender_domain and reply_domain and sender_domain != reply_domain)
     )
 
-    # SPF / DKIM pass indicators — looked up in body text because the
+    # SPF / DKIM pass indicators - looked up in body text because the
     # training dataset stored these as quoted strings within the body
     features["has_spf"] = int(
         bool(re.search(r"spf=pass", body_raw, re.IGNORECASE))
@@ -140,12 +140,12 @@ def extract_header_features(row: dict[str, Any]) -> dict[str, int]:
         bool(re.search(r"dkim=pass", body_raw, re.IGNORECASE))
     )
 
-    # Routing depth — more hops sometimes correlate with relayed phish
+    # Routing depth - more hops sometimes correlate with relayed phish
     features["received_hops"] = len(
         re.findall(r"^Received:", body_raw, re.MULTILINE)
     )
 
-    # Display name spoofing — brand keyword present in sender name but
+    # Display name spoofing - brand keyword present in sender name but
     # the corresponding legit domain is NOT in the actual sender domain
     spoofed = 0
     for brand, legit_domain in BRAND_DOMAINS.items():
@@ -177,18 +177,18 @@ def extract_body_features(row: dict[str, Any]) -> dict[str, Any]:
     subject = _safe_str(row.get("subject", ""))
     full_text = (subject + " " + body).lower()
 
-    # Urgency keyword count — summed across all phrases in URGENCY_WORDS
+    # Urgency keyword count - summed across all phrases in URGENCY_WORDS
     features["urgency_keyword_count"] = sum(
         full_text.count(kw) for kw in URGENCY_WORDS
     )
 
-    # HTML detection — simple substring check for common tags
+    # HTML detection - simple substring check for common tags
     body_lower = body.lower()
     features["has_html"] = int(
         "<html" in body_lower or "<a href" in body_lower
     )
 
-    # HTML-to-text ratio — fraction of the body that is markup characters.
+    # HTML-to-text ratio - fraction of the body that is markup characters.
     # Phishing emails with heavy styling and hidden spans skew high.
     html_chars = sum(len(tag) for tag in HTML_TAG_REGEX.findall(body))
     total_chars = len(body)
@@ -200,7 +200,7 @@ def extract_body_features(row: dict[str, Any]) -> dict[str, Any]:
     body_urls = _extract_urls_from_text(body)
     features["url_count"] = len(body_urls)
 
-    # Body-URL ratio — what fraction of body text is URL text. Emails
+    # Body-URL ratio - what fraction of body text is URL text. Emails
     # that are mostly links are suspicious.
     url_chars = sum(len(u) for u in body_urls)
     features["body_url_ratio"] = (
@@ -213,7 +213,7 @@ def extract_body_features(row: dict[str, Any]) -> dict[str, Any]:
         round(float(np.mean([len(w) for w in words])), 2) if words else 0
     )
 
-    # Exclamation marks — crude proxy for emotional manipulation
+    # Exclamation marks - crude proxy for emotional manipulation
     features["exclamation_count"] = body.count("!")
 
     # Credential / financial keyword flags (0/1)
@@ -285,7 +285,7 @@ def extract_url_features(row: dict[str, Any]) -> dict[str, int]:
             extracted.suffix in SUSPICIOUS_TLDS
         )
     except Exception:
-        # tldextract failures are swallowed — leave defaults in place
+        # tldextract failures are swallowed - leave defaults in place
         pass
 
     # Count unique external domains across ALL URLs in the email

@@ -1,5 +1,5 @@
 """
-app/config.py — Application configuration classes.
+app/config.py - Application configuration classes.
 
 Defines configuration for different environments (development, testing, production)
 using a base class with environment-specific subclasses.
@@ -23,7 +23,7 @@ class BaseConfig:
     override individual settings as needed.
     """
 
-    # Flask secret key — must be set via environment variable in production
+    # Flask secret key - must be set via environment variable in production
     SECRET_KEY: str = os.getenv("SECRET_KEY", "dev-secret-key-change-in-production")
 
     # SQLAlchemy settings

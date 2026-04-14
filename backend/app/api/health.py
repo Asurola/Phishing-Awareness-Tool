@@ -1,5 +1,5 @@
 """
-app/api/health.py — Health check endpoint.
+app/api/health.py - Health check endpoint.
 
 Provides a simple `GET /api/health` endpoint that returns the operational
 status of the backend service including whether the ML model is loaded
@@ -26,8 +26,8 @@ def health_check():
     Returns:
         JSON: {
             "status": "ok",
-            "model_loaded": bool — True if the ML classifier is loaded,
-            "scenarios_count": int — Number of seeded scenarios in the database
+            "model_loaded": bool - True if the ML classifier is loaded,
+            "scenarios_count": int - Number of seeded scenarios in the database
         }
     """
     try:

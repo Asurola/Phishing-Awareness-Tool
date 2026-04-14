@@ -1,5 +1,5 @@
 """
-app/ml/evaluate_model.py — Model evaluation and comparison script.
+app/ml/evaluate_model.py - Model evaluation and comparison script.
 
 Loads all trained models from app/ml/models/ and evaluates them on a
 held-out test set, producing a comparison table with key metrics
@@ -73,4 +73,4 @@ def plot_roc_curves(models: dict, X_test, y_test, output_path: str) -> None:
 
 
 if __name__ == "__main__":
-    print("Evaluation script — Phase 2 implementation pending.")
+    print("Evaluation script - Phase 2 implementation pending.")

@@ -1,5 +1,5 @@
 /**
- * src/pages/HomePage.jsx — Landing page.
+ * src/pages/HomePage.jsx - Landing page.
  *
  * Displays:
  *   - Hero section with tool name, tagline, and two primary CTAs

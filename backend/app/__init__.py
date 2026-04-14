@@ -1,5 +1,5 @@
 """
-app/__init__.py — Flask application factory.
+app/__init__.py - Flask application factory.
 
 Creates and configures the Flask app instance using the factory pattern.
 This allows multiple app instances to be created for different environments

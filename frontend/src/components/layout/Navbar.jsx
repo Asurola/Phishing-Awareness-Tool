@@ -1,5 +1,5 @@
 /**
- * src/components/layout/Navbar.jsx — Application navigation bar.
+ * src/components/layout/Navbar.jsx - Application navigation bar.
  *
  * Displays the tool name/logo and navigation links to all main sections.
  * Uses react-router NavLink for active link highlighting.

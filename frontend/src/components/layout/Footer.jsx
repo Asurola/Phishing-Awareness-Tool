@@ -1,5 +1,5 @@
 /**
- * src/components/layout/Footer.jsx — Application footer.
+ * src/components/layout/Footer.jsx - Application footer.
  *
  * Displays project attribution, quick links, and an academic project note.
  */

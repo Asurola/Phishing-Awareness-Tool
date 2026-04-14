@@ -1,5 +1,5 @@
 /**
- * src/hooks/useAnalysis.js — Custom hook for detection API calls.
+ * src/hooks/useAnalysis.js - Custom hook for detection API calls.
  *
  * Encapsulates the state management for the email analysis flow:
  *   - loading state

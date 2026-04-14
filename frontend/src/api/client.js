@@ -1,5 +1,5 @@
 /**
- * src/api/client.js — HTTP API client for the Flask backend.
+ * src/api/client.js - HTTP API client for the Flask backend.
  *
  * Provides a configured fetch wrapper that:
  *   - Prepends the backend base URL (from env variable VITE_API_BASE_URL

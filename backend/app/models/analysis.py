@@ -1,5 +1,5 @@
 """
-app/models/analysis.py — AnalysisResult database model.
+app/models/analysis.py - AnalysisResult database model.
 
 Stores the results of phishing analysis requests so that users can
 review their history and so that aggregate statistics can be computed.
@@ -22,7 +22,7 @@ class AnalysisResult(db.Model):
         session_id:      Anonymous session identifier (stored in browser localStorage).
         raw_email_hash:  SHA-256 hash of the submitted email (for deduplication, not the raw text).
         risk_score:      Integer risk score 0–100 produced by the explanation engine.
-        verdict:         Human-readable verdict string (e.g. "High Risk — Likely Phishing").
+        verdict:         Human-readable verdict string (e.g. "High Risk - Likely Phishing").
         prediction:      Raw ML prediction: 'phishing' or 'legitimate'.
         confidence:      ML model confidence score (0.0–1.0).
         feature_vector:  JSON-serialised dict of extracted features.

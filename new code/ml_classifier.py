@@ -1,5 +1,5 @@
 """
-app/services/ml_classifier.py — ML model loader and prediction service.
+app/services/ml_classifier.py - ML model loader and prediction service.
 
 Loads the trained Random Forest classifier and both TF-IDF vectorizers
 once at application startup using a singleton pattern, then exposes a
@@ -13,7 +13,7 @@ The four artefacts required (all produced by
   - tfidf_body.pkl        : TfidfVectorizer, 200-term vocabulary
   - feature_names.pkl     : ordered list of 322 feature names
 
-Feature column order is authoritative — the model was trained with a
+Feature column order is authoritative - the model was trained with a
 specific column ordering, and inference vectors MUST be built in that
 same order. We read this from `feature_names.pkl` rather than hardcoding
 it so retraining automatically propagates.
@@ -35,7 +35,7 @@ from .feature_extractor import (
 
 
 # ─────────────────────────────────────────────────────────────────────────
-# Singleton state — populated once by load_model()
+# Singleton state - populated once by load_model()
 # ─────────────────────────────────────────────────────────────────────────
 
 _model: Any = None
@@ -55,7 +55,7 @@ def load_model(models_dir: str) -> None:
     Load all four ML artefacts from disk into module-level singletons.
 
     Called once at application startup from the app factory. Safe to call
-    repeatedly — subsequent calls are no-ops unless artefacts have changed.
+    repeatedly - subsequent calls are no-ops unless artefacts have changed.
 
     Args:
         models_dir: Absolute path to the directory containing the four
@@ -103,7 +103,7 @@ def load_model(models_dir: str) -> None:
         raise RuntimeError(
             f"Model/feature mismatch: model expects {expected} features but "
             f"feature_names.pkl has {len(_feature_columns)}. The .pkl files "
-            f"are out of sync — re-export all four from the notebook."
+            f"are out of sync - re-export all four from the notebook."
         )
 
 

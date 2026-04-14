@@ -1,5 +1,5 @@
 /**
- * src/utils/constants.js — Application-wide constants.
+ * src/utils/constants.js - Application-wide constants.
  *
  * Central location for magic strings, configuration values, and enumerations
  * used throughout the frontend. Import from here rather than hardcoding values
@@ -20,9 +20,9 @@ export const RISK_THRESHOLDS = {
 
 /** Maps risk score to a human-readable verdict */
 export function getRiskVerdict(score) {
-    if (score < RISK_THRESHOLDS.LOW) return 'Low Risk — Likely Legitimate'
-    if (score < RISK_THRESHOLDS.MEDIUM) return 'Medium Risk — Treat with Caution'
-    return 'High Risk — Likely Phishing'
+    if (score < RISK_THRESHOLDS.LOW) return 'Low Risk - Likely Legitimate'
+    if (score < RISK_THRESHOLDS.MEDIUM) return 'Medium Risk - Treat with Caution'
+    return 'High Risk - Likely Phishing'
 }
 
 /** Maps risk score to a colour string */

@@ -1,5 +1,5 @@
 /**
- * src/components/common/LoadingSpinner.jsx — Animated loading indicator.
+ * src/components/common/LoadingSpinner.jsx - Animated loading indicator.
  *
  * Displays a pulsing spinner with an optional label.
  * Used throughout the app while API calls are in flight.

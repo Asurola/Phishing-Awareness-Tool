@@ -1,5 +1,5 @@
 /**
- * src/components/layout/Layout.jsx — Root layout wrapper.
+ * src/components/layout/Layout.jsx - Root layout wrapper.
  *
  * Wraps all pages with a consistent structure:
  *   - Navbar at the top

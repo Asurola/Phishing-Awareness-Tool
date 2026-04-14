@@ -1,5 +1,5 @@
 """
-app/api/education.py — Educational platform API endpoints.
+app/api/education.py - Educational platform API endpoints.
 
 Handles all endpoints related to the training/simulation module:
   - Listing scenarios filtered by difficulty
@@ -32,7 +32,7 @@ def list_scenarios():
         limit (int):      Maximum number of results to return (default: 10).
 
     Returns:
-        JSON: List of scenario summaries (id, title, difficulty, category).
+        JSON: List of scenario summaries (id, title, difficulty).
     """
     try:
         difficulty = request.args.get("difficulty")
@@ -165,7 +165,7 @@ def get_progress(session_id: str):
 
         # Break down accuracy by difficulty
         by_difficulty: dict = {}
-        for diff in ("beginner", "intermediate", "advanced"):
+        for diff in ("Beginner", "Intermediate", "Advanced"):
             diff_attempts = [
                 a for a in attempts if a.scenario and a.scenario.difficulty == diff
             ]

@@ -1,10 +1,10 @@
 """
-app/services/explanation.py — Human-readable explanation engine.
+app/services/explanation.py - Human-readable explanation engine.
 
 Converts the raw feature vector produced by `ml_classifier.classify()`
 into a list of user-facing threat flags plus a set of actionable
 recommendations. This is what turns the model from a black box into
-an educational tool — when a user sees "flagged as phishing", they
+an educational tool - when a user sees "flagged as phishing", they
 also see *why*.
 
 The engine focuses exclusively on the 25 engineered features; TF-IDF
@@ -66,7 +66,7 @@ def generate_flags(
                 "This is a classic brand-impersonation technique."
             ),
             "recommendation": (
-                "Never trust a display name alone — always check that the "
+                "Never trust a display name alone - always check that the "
                 "domain after '@' matches the company's real website."
             ),
         })
@@ -85,7 +85,7 @@ def generate_flags(
             "recommendation": (
                 "Do not reply to this email. If you need to contact the "
                 "organisation, use a phone number or URL you already "
-                "trust — not anything from this email."
+                "trust - not anything from this email."
             ),
         })
 
@@ -119,7 +119,7 @@ def generate_flags(
             "description": (
                 "At least one link in this email points to a numeric IP "
                 "address instead of a domain name. Legitimate services "
-                "almost never do this — it's a way to hide the true "
+                "almost never do this - it's a way to hide the true "
                 "destination of a link."
             ),
             "recommendation": (
@@ -156,7 +156,7 @@ def generate_flags(
                 "legitimate site."
             ),
             "recommendation": (
-                "Do not click the link — inspect what comes *after* the "
+                "Do not click the link - inspect what comes *after* the "
                 "'@' to see where it actually leads."
             ),
         })
@@ -275,7 +275,7 @@ def generate_flags(
                 "use heavy styling to mimic brand emails and hide content."
             ),
             "recommendation": (
-                "Be extra cautious — view the email in plain text mode "
+                "Be extra cautious - view the email in plain text mode "
                 "if your client supports it."
             ),
         })
@@ -322,12 +322,12 @@ def verdict(probability: float) -> str:
     model's 0.5 decision threshold.
     """
     if probability >= 0.80:
-        return "High Risk — Likely Phishing"
+        return "High Risk - Likely Phishing"
     if probability >= 0.50:
-        return "Elevated Risk — Suspicious"
+        return "Elevated Risk - Suspicious"
     if probability >= 0.20:
-        return "Low Risk — Probably Safe"
-    return "Minimal Risk — Likely Legitimate"
+        return "Low Risk - Probably Safe"
+    return "Minimal Risk - Likely Legitimate"
 
 
 def summary_recommendations(
@@ -357,7 +357,7 @@ def summary_recommendations(
         )
         if flags:
             recs.append(
-                "Some lower-severity signals were detected — review the "
+                "Some lower-severity signals were detected - review the "
                 "flags above before trusting the message."
             )
 

@@ -1,4 +1,4 @@
-# Master Prompt — Phishing Detection & Awareness Tool (FYP)
+# Master Prompt - Phishing Detection & Awareness Tool (FYP)
 
 > **Paste this into your agentic IDE (Cursor, Windsurf, Bolt, etc.) as the project-level system prompt or initial generation prompt.**
 
@@ -6,7 +6,7 @@
 
 ## 🎯 Project Overview
 
-Build a **Phishing Detection and Awareness Tool** — a dual-function web application with two core components:
+Build a **Phishing Detection and Awareness Tool** - a dual-function web application with two core components:
 
 1. **Detection Engine**: Analyses user-submitted email content (pasted or uploaded) for phishing indicators using feature extraction and machine learning classification. Outputs a risk score, threat explanations, and actionable recommendations.
 2. **Educational Platform**: Interactive simulation-based training that presents users with phishing scenarios of increasing difficulty, provides immediate feedback, and tracks learning progress.
@@ -53,7 +53,7 @@ phishing-awareness-tool/
 │   │   │   └── progress.py          # Educational progress model
 │   │   ├── api/
 │   │   │   ├── __init__.py
-│   │   │   ├── detection.py         # POST /api/analyse — main detection endpoint
+│   │   │   ├── detection.py         # POST /api/analyse - main detection endpoint
 │   │   │   ├── education.py         # GET/POST /api/scenarios, /api/progress
 │   │   │   └── health.py            # GET /api/health
 │   │   ├── services/
@@ -132,7 +132,7 @@ phishing-awareness-tool/
 
 ---
 
-## 🔍 Detection Engine — Detailed Specification
+## 🔍 Detection Engine - Detailed Specification
 
 ### Email Input Methods
 Users submit email content via:
@@ -206,7 +206,7 @@ After classification, generate **human-readable explanations** for the user:
             "category": "URL",
             "severity": "high",
             "finding": "Suspicious URL detected",
-            "explanation": "The link 'paypa1-secure.com/verify' uses a lookalike domain that mimics PayPal. The '1' replaces 'l' — a common typo-squatting technique.",
+            "explanation": "The link 'paypa1-secure.com/verify' uses a lookalike domain that mimics PayPal. The '1' replaces 'l' - a common typo-squatting technique.",
             "recommendation": "Never click links in emails. Navigate to PayPal directly by typing paypal.com in your browser."
         },
         {
@@ -226,11 +226,11 @@ After classification, generate **human-readable explanations** for the user:
 }
 ```
 
-This explanatory output is **critical** — it bridges the detection engine and educational platform by teaching users WHY something is flagged.
+This explanatory output is **critical** - it bridges the detection engine and educational platform by teaching users WHY something is flagged.
 
 ---
 
-## 📚 Educational Platform — Detailed Specification
+## 📚 Educational Platform - Detailed Specification
 
 ### Scenario Database Schema
 ```sql
@@ -295,7 +295,7 @@ Seed the database with **at least 15-20 scenarios** across difficulty levels:
 6. Progress tracker updates (correct %, scenarios completed, difficulty breakdown)
 
 ### Progress Tracking
-Track per-session (no login required — use localStorage session ID):
+Track per-session (no login required - use localStorage session ID):
 - Total scenarios attempted & completed
 - Accuracy rate (overall and per difficulty level)
 - Common mistakes (which indicator types the user misses most)
@@ -307,8 +307,8 @@ Track per-session (no login required — use localStorage session ID):
 ## 🎨 Frontend Design Specification
 
 ### Design Principles
-- **Clean, professional** — this is an academic cybersecurity tool, not a gaming app
-- **Informative** — every screen should teach the user something
+- **Clean, professional** - this is an academic cybersecurity tool, not a gaming app
+- **Informative** - every screen should teach the user something
 - **Colour scheme**: Use blue/navy tones for trust + red/amber for warning indicators
 - **Responsive**: Must work on desktop and tablet (mobile is nice-to-have)
 
@@ -324,7 +324,7 @@ Track per-session (no login required — use localStorage session ID):
 - **"Analyse" button**: Sends to backend, shows loading spinner
 - **Results panel** (appears after analysis):
   - Risk score gauge (0-100, colour-coded: green/amber/red)
-  - Verdict banner ("Low Risk — Likely Legitimate" / "High Risk — Likely Phishing")
+  - Verdict banner ("Low Risk - Likely Legitimate" / "High Risk - Likely Phishing")
   - Expandable threat flags grouped by category (URL / Headers / Content)
   - Each flag shows: severity icon, finding summary, detailed explanation, recommendation
   - Summary recommendations panel at the bottom
@@ -391,10 +391,10 @@ GET  /api/health
 
 Use these publicly available datasets:
 
-1. **PhishTank** (https://phishtank.org/developer_info.php) — Verified phishing URLs
-2. **UNB URL Dataset 2016** — Balanced URL features dataset (benign + phishing)
-3. **Kaggle Phishing Email Dataset** — Labelled email corpus
-4. **UCI Phishing Websites Dataset** — 30 features, 11,055 instances
+1. **PhishTank** (https://phishtank.org/developer_info.php) - Verified phishing URLs
+2. **UNB URL Dataset 2016** - Balanced URL features dataset (benign + phishing)
+3. **Kaggle Phishing Email Dataset** - Labelled email corpus
+4. **UCI Phishing Websites Dataset** - 30 features, 11,055 instances
 
 For the training script, structure the pipeline as:
 1. Load dataset(s)
@@ -411,14 +411,14 @@ For the training script, structure the pipeline as:
 
 Build in this order:
 
-### Phase 1 — Foundation (Week 1-2)
+### Phase 1 - Foundation (Week 1-2)
 - [ ] Project scaffolding (both frontend and backend)
 - [ ] Flask app factory with config, CORS, SQLite
 - [ ] Database models & migrations
 - [ ] Basic React app with routing and layout components
 - [ ] Health check endpoint working end-to-end
 
-### Phase 2 — Detection Engine Core (Week 3-5)
+### Phase 2 - Detection Engine Core (Week 3-5)
 - [ ] Email parser service (handles raw text paste and .eml upload)
 - [ ] URL analyser (all 13 URL features)
 - [ ] Header analyser (all 7 header features)
@@ -428,14 +428,14 @@ Build in this order:
 - [ ] Classification endpoint (`POST /api/analyse`)
 - [ ] Explanation engine (generates human-readable flags)
 
-### Phase 3 — Detection Frontend (Week 5-6)
+### Phase 3 - Detection Frontend (Week 5-6)
 - [ ] Email input form (paste + file upload)
 - [ ] API integration with loading states
 - [ ] Risk score gauge component
 - [ ] Threat flags display (expandable cards)
 - [ ] Recommendations panel
 
-### Phase 4 — Educational Platform (Week 6-8)
+### Phase 4 - Educational Platform (Week 6-8)
 - [ ] Scenario database seeding script (15-20 scenarios)
 - [ ] Scenario API endpoints
 - [ ] Education hub page with difficulty selector
@@ -443,13 +443,13 @@ Build in this order:
 - [ ] Answer & feedback flow
 - [ ] Progress tracking (backend + frontend dashboard)
 
-### Phase 5 — Integration & Polish (Week 8-9)
+### Phase 5 - Integration & Polish (Week 8-9)
 - [ ] Cross-link detection results → related educational scenarios
 - [ ] Error handling and input validation throughout
 - [ ] Loading states, empty states, error states
 - [ ] Responsive design pass
 
-### Phase 6 — Testing & Evaluation (Week 9-10)
+### Phase 6 - Testing & Evaluation (Week 9-10)
 - [ ] Unit tests for feature extractors
 - [ ] Integration tests for API endpoints
 - [ ] ML model evaluation (comparison table with metrics)
@@ -499,16 +499,16 @@ npm install
 npm run dev
 ```
 
-Both should run concurrently — frontend on port 5173 (Vite default), backend on port 5000.
+Both should run concurrently - frontend on port 5173 (Vite default), backend on port 5000.
 
 ---
 
 ## Key Reminder
 
 This is a **university Final Year Project**. The code needs to be:
-1. **Well-documented** — I need to explain every design decision in my report
-2. **Modular** — each component should be independently testable and demonstrable
-3. **Demonstrable** — I need to demo this live during a viva presentation
-4. **Evaluable** — I need to collect metrics (accuracy, F1, etc.) for my report
+1. **Well-documented** - I need to explain every design decision in my report
+2. **Modular** - each component should be independently testable and demonstrable
+3. **Demonstrable** - I need to demo this live during a viva presentation
+4. **Evaluable** - I need to collect metrics (accuracy, F1, etc.) for my report
 
 Prioritise a **working, demonstrable system** over feature completeness. A polished core that works well is far more impressive than a sprawling system that's half-broken.

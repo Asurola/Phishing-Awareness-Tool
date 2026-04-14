@@ -1,5 +1,5 @@
 """
-app/services/email_parser.py — Email parsing service.
+app/services/email_parser.py - Email parsing service.
 
 Parses raw email content (either a pasted string or the contents of a .eml
 file) into the structured dictionary format that the feature extractor
@@ -29,10 +29,10 @@ from email.message import EmailMessage
 from html import unescape
 from typing import Any
 
-# URL extraction pattern — matches http(s) URLs, excluding trailing punctuation
+# URL extraction pattern - matches http(s) URLs, excluding trailing punctuation
 URL_REGEX = re.compile(r'https?://[^\s<>"\'\)]+')
 
-# Simple HTML tag stripper — removes tags without parsing structure
+# Simple HTML tag stripper - removes tags without parsing structure
 HTML_TAG_REGEX = re.compile(r'<[^>]+>')
 
 
@@ -44,7 +44,7 @@ def parse_raw_email(raw: str) -> dict[str, Any]:
     The parser handles three input shapes, in order of preference:
       1. A full RFC-822 email with headers and body (typical .eml content)
       2. A partial email with recognisable headers but no body separator
-      3. A plain text blob with no headers at all — treated entirely as body
+      3. A plain text blob with no headers at all - treated entirely as body
 
     Args:
         raw: The raw email content as a string. May be a full .eml file,

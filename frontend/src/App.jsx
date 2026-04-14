@@ -1,5 +1,5 @@
 /**
- * src/App.jsx — Root application component with routing configuration.
+ * src/App.jsx - Root application component with routing configuration.
  *
  * Defines all client-side routes using react-router-dom v6.
  * All pages are wrapped in the Layout component which provides

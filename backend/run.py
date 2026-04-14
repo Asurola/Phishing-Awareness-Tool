@@ -1,5 +1,5 @@
 """
-run.py — Application entry point.
+run.py - Application entry point.
 
 Imports the Flask app factory and starts the development server.
 Run with: python run.py
@@ -19,7 +19,7 @@ env = os.getenv("FLASK_ENV", "development")
 app = create_app(env)
 
 if __name__ == "__main__":
-    print(f"Starting Phishing Awareness Tool backend — environment: {env}")
+    print(f"Starting Phishing Awareness Tool backend - environment: {env}")
     app.run(
         host="0.0.0.0",
         port=int(os.getenv("PORT", 5000)),

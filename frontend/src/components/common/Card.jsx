@@ -1,5 +1,5 @@
 /**
- * src/components/common/Card.jsx — Reusable card container component.
+ * src/components/common/Card.jsx - Reusable card container component.
  *
  * A dark-themed card with optional title and consistent border/padding.
  * Uses the .card CSS class from index.css.

@@ -1,6 +1,6 @@
 # API Documentation
 
-> **Status:** Placeholder — to be completed during Phase 2 implementation.
+> **Status:** Placeholder - to be completed during Phase 2 implementation.
 
 ## Base URL
 
@@ -51,7 +51,7 @@ file: <.eml file upload>
 ```json
 {
   "risk_score": 85,
-  "verdict": "High Risk — Likely Phishing",
+  "verdict": "High Risk - Likely Phishing",
   "flags": [
     {
       "category": "URL",

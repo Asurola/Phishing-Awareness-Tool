@@ -1,5 +1,5 @@
 """
-app/utils/validators.py — Input validation helper functions.
+app/utils/validators.py - Input validation helper functions.
 
 Provides reusable validation utilities for API request payloads.
 These validators are called at the start of each API endpoint handler
@@ -16,7 +16,7 @@ def validate_email_input(data: dict[str, Any]) -> tuple[bool, str | None]:
     """
     Validate the request body for the POST /api/analyse endpoint.
 
-    Checks that the request contains usable email content — either a
+    Checks that the request contains usable email content - either a
     non-empty 'raw_email' string, or an uploaded file.
 
     Args:

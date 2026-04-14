@@ -4,7 +4,7 @@
 
 ---
 
-## Phase 1 — Foundation
+## Phase 1 - Foundation
 
 - [ ] Flask app factory with config, CORS, SQLite
 - [ ] Database models (Analysis, Progress/UserProgress)
@@ -14,18 +14,18 @@
 
 ---
 
-## Phase 2 — Detection Engine
+## Phase 2 - Detection Engine
 
 ### Feature Extraction
 - [ ] Email parser service (raw text + .eml upload)
-- [ ] URL analyser — 13 URL features
-- [ ] Header analyser — 7 header features
-- [ ] Content analyser — 11 content features
+- [ ] URL analyser - 13 URL features
+- [ ] Header analyser - 7 header features
+- [ ] Content analyser - 11 content features
 - [ ] Feature extractor orchestrator
 
 ### ML Pipeline
 - [ ] Training script (`train_model.py`)
-- [ ] Evaluation script (`evaluate_model.py`) — accuracy, F1, ROC-AUC
+- [ ] Evaluation script (`evaluate_model.py`) - accuracy, F1, ROC-AUC
 - [ ] Random Forest classifier
 - [ ] Logistic Regression (comparison)
 - [ ] SVM (comparison)
@@ -38,7 +38,7 @@
 
 ---
 
-## Phase 3 — Detection Frontend
+## Phase 3 - Detection Frontend
 
 - [ ] Email input form (paste + .eml upload)
 - [ ] API integration with loading states
@@ -48,7 +48,7 @@
 
 ---
 
-## Phase 4 — Educational Platform
+## Phase 4 - Educational Platform
 
 - [ ] Scenario database seeding script (15–20 scenarios)
 - [ ] `GET /api/scenarios` endpoint
@@ -61,7 +61,7 @@
 
 ---
 
-## Phase 5 — Integration & Polish
+## Phase 5 - Integration & Polish
 
 - [ ] Cross-link detection results → related educational scenarios
 - [ ] Error handling and input validation throughout
@@ -70,7 +70,7 @@
 
 ---
 
-## Phase 6 — Testing & Evaluation
+## Phase 6 - Testing & Evaluation
 
 - [ ] Unit tests: `test_email_parser.py`
 - [ ] Unit tests: `test_feature_extractor.py`
