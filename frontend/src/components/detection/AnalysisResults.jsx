@@ -1,4 +1,5 @@
 /**
+ * src/components/detection/AnalysisResults.jsx
  *
  * Top-level results panel shown after a successful API response.
  *
