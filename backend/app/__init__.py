@@ -49,8 +49,16 @@ def create_app(env: str = "development") -> Flask:
     app.register_blueprint(education_bp, url_prefix="/api")
 
     # Load ML model into memory at startup
+    import os
     from .services.ml_classifier import load_model
-    load_model()
+    models_dir = os.path.join(os.path.dirname(__file__), "ml", "models")
+    try:
+        load_model(models_dir)
+        app.logger.info(f"ML model loaded from {models_dir}")
+    except FileNotFoundError as e:
+        app.logger.warning(f"ML model not loaded: {e}")
+    except RuntimeError as e:
+        app.logger.error(f"ML model failed validation: {e}")
 
     with app.app_context():
         db.create_all()
