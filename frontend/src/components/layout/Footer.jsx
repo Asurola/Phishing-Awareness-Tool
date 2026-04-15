@@ -59,7 +59,7 @@ function Footer() {
                 {/* Academic Note */}
                 <div>
                     <p style={{ color: '#475569', fontSize: '0.8125rem', margin: 0 }}>
-                        © 2024 Final Year Project<br />
+                        2026 Final Year Project<br />
                         Built with Flask + React
                     </p>
                 </div>

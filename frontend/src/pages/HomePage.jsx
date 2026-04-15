@@ -77,7 +77,7 @@ function HomePage() {
                         </Link>
                     </div>
 
-                    {/* Health indicator */}
+                    {/* Health indicator
                     {healthStatus && (
                         <div style={{ marginTop: '2rem', fontSize: '0.8125rem', color: '#475569' }}>
                             Backend:{' '}
@@ -88,7 +88,7 @@ function HomePage() {
                                 <> · {healthStatus.scenarios_count} training scenarios loaded</>
                             )}
                         </div>
-                    )}
+                    )} */}
                 </div>
             </section>
 
@@ -122,7 +122,7 @@ function HomePage() {
                             {
                                 icon: '🔬',
                                 title: '2. Analyse',
-                                description: 'Our AI extracts 31 phishing features across URLs, headers, and content.',
+                                description: 'The tool extracts 31 phishing features across URLs, headers, and content.',
                                 color: '#a78bfa',
                             },
                             {

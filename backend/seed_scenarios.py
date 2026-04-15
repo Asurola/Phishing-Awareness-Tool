@@ -30,7 +30,6 @@ SCENARIOS = [
     {
         "title": "Nigerian Prince Lottery Win",
         "difficulty": "Beginner",
-        "category": "Advance Fee",
         "is_phishing": True,
         "email_content": """From: prince.ibrahim@yahoo.com
 To: victim@example.com
@@ -76,7 +75,6 @@ Royal Palace of Lagos
     {
         "title": "Prize Notification",
         "difficulty": "Beginner",
-        "category": "Credential Harvesting",
         "is_phishing": True,
         "email_content": """From: prizes@mega-lottery-winners.tk
 To: you@example.com
@@ -117,7 +115,6 @@ The Mega Lottery Team
     {
         "title": "PayPal Account Locked - Verify Now",
         "difficulty": "Beginner",
-        "category": "Credential Harvesting",
         "is_phishing": True,
         "email_content": """From: security@paypa1-support.com
 To: customer@example.com
@@ -165,7 +162,6 @@ PayPal Security Team
     {
         "title": "Amazon Security Alert",
         "difficulty": "Beginner",
-        "category": "Credential Harvesting",
         "is_phishing": True,
         "email_content": """From: no-reply@amaz0n-security.com
 To: shopper@example.com
@@ -206,7 +202,6 @@ Amazon Security Centre
     {
         "title": "GitHub Password Reset",
         "difficulty": "Beginner",
-        "category": "Credential Harvesting",
         "is_phishing": False,
         "email_content": """From: noreply@github.com
 To: developer@example.com
@@ -246,7 +241,6 @@ GitHub, Inc.
     {
         "title": "IT Helpdesk Password Expiry",
         "difficulty": "Beginner",
-        "category": "Credential Harvesting",
         "is_phishing": True,
         "email_content": """From: helpdesk@it-support-helpdesk.com
 To: employee@company.com
@@ -286,7 +280,6 @@ IT Helpdesk Support
     {
         "title": "Order Confirmation",
         "difficulty": "Intermediate",
-        "category": "Clone Phishing",
         "is_phishing": True,
         "email_content": """From: orders@amazon.com.order-confirm.net
 To: customer@example.com
@@ -330,7 +323,6 @@ Thank you for shopping with Amazon.
     {
         "title": "Finance Department Invoice",
         "difficulty": "Intermediate",
-        "category": "Business Email",
         "is_phishing": True,
         "email_content": """From: accounts@fast-invoice-solutions.com
 To: finance@targetcompany.com
@@ -376,7 +368,6 @@ Fast Business Solutions Ltd
     {
         "title": "IT Department VPN Credentials",
         "difficulty": "Intermediate",
-        "category": "Credential Harvesting",
         "is_phishing": True,
         "email_content": """From: it-helpdesk@company-it-support.com
 To: staff@targetcompany.com
@@ -420,7 +411,6 @@ Target Company
     {
         "title": "Dropbox Link",
         "difficulty": "Intermediate",
-        "category": "Credential Harvesting",
         "is_phishing": True,
         "email_content": """From: sharing@dropbox-notify.com
 To: colleague@example.com
@@ -460,7 +450,6 @@ The Dropbox Team
     {
         "title": "Monthly Bank Statement",
         "difficulty": "Intermediate",
-        "category": "Bank Notification",
         "is_phishing": False,
         "email_content": """From: statements@notifications.barclays.co.uk
 To: account.holder@example.com
@@ -504,7 +493,6 @@ Registered in England. Registered No: 1026167
     {
         "title": "HR Budget Approval Request",
         "difficulty": "Advanced",
-        "category": "Office BAU",
         "is_phishing": True,
         "email_content": """From: c.morrison@targetcompany-hq.com
 To: finance.manager@targetcompany.com
@@ -553,7 +541,6 @@ Target Company
     {
         "title": "CEO Email",
         "difficulty": "Advanced",
-        "category": "Higher Management BAU",
         "is_phishing": True,
         "email_content": """From: james.thornton@targetcorp-executive.com
 To: payroll@targetcorp.com
@@ -600,7 +587,6 @@ CEO, TargetCorp
     {
         "title": "PayPal.com Credential Verification",
         "difficulty": "Advanced",
-        "category": "Credential Harvesting",
         "is_phishing": True,
         "email_content": """From: service@paypal.com
 To: paypal.user@example.com
@@ -647,7 +633,6 @@ PayPal Customer Services
     {
         "title": "Simple Email",
         "difficulty": "Advanced",
-        "category": "Bank Details Change",
         "is_phishing": True,
         "email_content": """From: david.chen@supplier-co.net
 To: procurement@targetcompany.com
@@ -702,7 +687,6 @@ Subject: Re: Re: Purchase Order PO-2024-0483 - Delivery Confirmation
     {
         "title": "AWS Security Alert",
         "difficulty": "Advanced",
-        "category": "IT Security",
         "is_phishing": False,
         "email_content": """From: no-reply@sns.amazonaws.com
 To: devops@company.com
@@ -752,17 +736,23 @@ AWS Security Team
 ]
 
 
-def seed_database() -> None:
+def seed_database(force: bool = False) -> None:
     """
     Seed the database with all predefined phishing and legitimate scenarios.
 
-    Checks whether the scenarios table is empty before inserting to prevent
-    duplicate data on repeated runs.
+    Args:
+        force: If True, clears all existing scenarios before re-seeding.
+               Defaults to False (skip if data already exists).
     """
     existing_count = Scenario.query.count()
     if existing_count > 0:
-        print(f"Database already contains {existing_count} scenarios. Skipping seed.")
-        return
+        if not force:
+            print(f"Database already contains {existing_count} scenarios. Skipping seed.")
+            print("Re-run with --force to clear and re-seed.")
+            return
+        print(f"Force mode: deleting {existing_count} existing scenarios...")
+        Scenario.query.delete()
+        db.session.commit()
 
     print(f"Seeding {len(SCENARIOS)} scenarios...")
 
@@ -770,7 +760,6 @@ def seed_database() -> None:
         scenario = Scenario(
             title=scenario_data["title"],
             difficulty=scenario_data["difficulty"],
-            category=scenario_data["category"],
             email_content=scenario_data["email_content"],
             is_phishing=scenario_data["is_phishing"],
             indicators=scenario_data["indicators"],
@@ -789,7 +778,9 @@ def seed_database() -> None:
 
 
 if __name__ == "__main__":
+    import sys
+    force = "--force" in sys.argv
     app = create_app("development")
     with app.app_context():
         db.create_all()
-        seed_database()
+        seed_database(force=force)
