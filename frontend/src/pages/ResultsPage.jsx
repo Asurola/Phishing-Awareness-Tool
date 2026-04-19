@@ -9,7 +9,6 @@
  *
  * Session ID is stored in localStorage (no authentication required).
  *
- * TODO (Phase 4): Add ProgressTracker chart components (bar charts, trend lines).
  */
 
 import { useEffect, useState } from 'react'
@@ -24,7 +23,7 @@ function AccuracyBar({ label, attempted, correct }) {
         <div style={{ marginBottom: '1rem' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.375rem' }}>
                 <span style={{ color: '#94a3b8', fontSize: '0.875rem', textTransform: 'capitalize' }}>{label}</span>
-                <span style={{ color, fontWeight: 600, fontSize: '0.875rem' }}>
+                <span style={{ color: colour, fontWeight: 600, fontSize: '0.875rem' }}>
                     {pct}% ({correct}/{attempted})
                 </span>
             </div>
@@ -60,7 +59,7 @@ function ResultsPage() {
         : 0
 
     const encouragement = overallPct >= 80
-        ? '🏆 Excellent! You\'re a phishing detection expert.'
+        ? '🏆 Excellent! You\'re getting better at detecting phishing.'
         : overallPct >= 60
             ? '👍 Good progress! Keep practising to improve.'
             : overallPct >= 40
@@ -123,7 +122,7 @@ function ResultsPage() {
 
                     <div style={{ textAlign: 'center', marginTop: '2rem' }}>
                         <Link to="/learn">
-                            <button className="btn-primary">Continue Training →</button>
+                            <button className="btn-primary">Continue Training</button>
                         </Link>
                     </div>
                 </>
