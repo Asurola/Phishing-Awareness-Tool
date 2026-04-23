@@ -34,7 +34,6 @@ def health_check():
         # Check how many scenarios are in the database
         scenarios_count = Scenario.query.count()
 
-        # TODO (Phase 2): Check whether the ML model is actually loaded
         from ..services.ml_classifier import is_model_loaded
         model_loaded = is_model_loaded()
 

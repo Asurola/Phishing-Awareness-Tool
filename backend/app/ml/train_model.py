@@ -17,8 +17,6 @@ Usage:
     python -m app.ml.train_model
     or
     python app/ml/train_model.py
-
-TODO (Phase 2): Implement the full training pipeline.
 """
 
 from __future__ import annotations
@@ -44,7 +42,6 @@ def load_dataset(data_dir: str) -> tuple:
         tuple: (X, y) where X is a pandas DataFrame of features and
                y is a pandas Series of labels (1=phishing, 0=legitimate).
     """
-    # TODO (Phase 2): Implement with pandas
     raise NotImplementedError("train_model.load_dataset is not yet implemented.")
 
 
@@ -65,7 +62,6 @@ def train_all_models(X_train, y_train) -> dict:
     Returns:
         dict: Mapping of model_name → fitted model instance.
     """
-    # TODO (Phase 2): Implement
     raise NotImplementedError("train_model.train_all_models is not yet implemented.")
 
 
@@ -89,7 +85,6 @@ def evaluate_model(model, X_test, y_test, model_name: str) -> dict:
             "roc_auc": float
         }
     """
-    # TODO (Phase 2): Implement with sklearn.metrics
     raise NotImplementedError("train_model.evaluate_model is not yet implemented.")
 
 
@@ -103,7 +98,6 @@ def save_model(model, scaler, output_path: str) -> None:
         output_path: File path to save the model .pkl file (e.g.
                      'app/ml/models/phishing_classifier.pkl').
     """
-    # TODO (Phase 2): Implement with joblib.dump()
     raise NotImplementedError("train_model.save_model is not yet implemented.")
 
 

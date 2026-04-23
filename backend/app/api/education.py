@@ -176,7 +176,6 @@ def get_progress(session_id: str):
                 "accuracy": (diff_correct / len(diff_attempts)) if diff_attempts else 0.0,
             }
 
-        # TODO (Phase 4): Implement weak_areas computation based on missed indicators
         weak_areas: list = []
 
         return jsonify({

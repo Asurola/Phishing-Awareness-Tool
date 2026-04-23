@@ -7,8 +7,6 @@
  *   - Progress summary bar
  *   - Start Training button → navigates to SimulationPage
  *
- * TODO (Phase 4): Implement full scenario grid with ScenarioCard components,
- *                 DifficultySelector, and ProgressTracker components.
  */
 
 import { useEffect, useState } from 'react'

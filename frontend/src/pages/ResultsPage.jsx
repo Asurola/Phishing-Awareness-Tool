@@ -4,7 +4,7 @@
  * Retrieves and displays a session's learning progress from the API:
  *   - Overall accuracy and scenarios completed
  *   - Accuracy breakdown by difficulty (beginner / intermediate / advanced)
- *   - Weak areas (TODO Phase 4)
+ *   - Weak areas
  *   - Encouragement messaging
  *
  * Session ID is stored in localStorage (no authentication required).
@@ -59,12 +59,12 @@ function ResultsPage() {
         : 0
 
     const encouragement = overallPct >= 80
-        ? '🏆 Excellent! You\'re getting better at detecting phishing.'
+        ? 'Excellent! You\'re getting better at detecting phishing.'
         : overallPct >= 60
-            ? '👍 Good progress! Keep practising to improve.'
+            ? 'Good progress! Keep practising to improve.'
             : overallPct >= 40
-                ? '📚 Getting there - review the explanations to learn the indicators.'
-                : '🚀 Keep going! Every scenario makes you safer.'
+                ? 'Getting there - review the explanations to learn the indicators.'
+                : 'Keep going! Every scenario makes you safer.'
 
     return (
         <div style={{ maxWidth: 800, margin: '0 auto', padding: '3rem 1.5rem' }}>
@@ -83,7 +83,7 @@ function ResultsPage() {
                         You haven't completed any scenarios yet!
                     </p>
                     <Link to="/learn">
-                        <button className="btn-primary">Start Training →</button>
+                        <button className="btn-primary">Start Training</button>
                     </Link>
                 </div>
             ) : (

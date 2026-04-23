@@ -5,7 +5,6 @@ Provides reusable validation utilities for API request payloads.
 These validators are called at the start of each API endpoint handler
 to sanitise and reject invalid inputs early, before any business logic runs.
 
-TODO (Phase 2): Implement the following validation functions.
 """
 
 from __future__ import annotations
@@ -39,7 +38,6 @@ def validate_email_input(data: dict[str, Any]) -> tuple[bool, str | None]:
         >>> err
         'No email content provided.'
     """
-    # TODO (Phase 2): Implement
     raise NotImplementedError("validators.validate_email_input is not yet implemented.")
 
 
@@ -56,7 +54,6 @@ def validate_session_id(session_id: str) -> bool:
     Returns:
         bool: True if the session_id is valid, False otherwise.
     """
-    # TODO (Phase 2): Implement (UUID format check, length limit)
     raise NotImplementedError("validators.validate_session_id is not yet implemented.")
 
 

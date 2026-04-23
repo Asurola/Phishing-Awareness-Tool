@@ -7,7 +7,6 @@
  *   - error handling
  *   - session ID management
  *
- * TODO (Phase 3): Flesh out with full analysis pipeline state.
  */
 
 import { useState, useCallback } from 'react'

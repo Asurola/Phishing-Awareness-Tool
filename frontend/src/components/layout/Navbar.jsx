@@ -7,7 +7,6 @@
  * Links:
  *   / (Home), /detect (Analyse), /learn (Learn), /learn/progress (Progress)
  *
- * TODO (Phase 3/4): Add mobile hamburger menu for responsive layout.
  */
 
 import { NavLink } from 'react-router-dom'

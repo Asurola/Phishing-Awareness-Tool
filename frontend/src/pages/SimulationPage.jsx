@@ -11,8 +11,6 @@
  *   4. Reveal feedback panel with explanation + learning points
  *   5. Option to proceed to next scenario or return to hub
  *
- * TODO (Phase 4): Implement full answer/feedback flow with SimulationView,
- *                 FeedbackPanel, and annotated indicator highlighting.
  */
 
 import { useState, useEffect } from 'react'
@@ -74,7 +72,7 @@ function SimulationPage() {
         return (
             <div style={{ textAlign: 'center', padding: '5rem' }}>
                 <p style={{ color: '#ef4444' }}>Scenario not found.</p>
-                <button className="btn-primary" onClick={() => navigate('/learn')}>← Back to Hub</button>
+                <button className="btn-primary" onClick={() => navigate('/learn')}>Back to Hub</button>
             </div>
         )
     }
@@ -86,7 +84,7 @@ function SimulationPage() {
                     onClick={() => navigate('/learn')}
                     style={{ background: 'none', border: 'none', color: '#64748b', cursor: 'pointer', fontSize: '0.875rem' }}
                 >
-                    ← Back to Hub
+                    Back to Hub
                 </button>
                 <h1 style={{ fontWeight: 700, fontSize: '1.5rem', color: '#e2e8f0', margin: '0.5rem 0 0.25rem' }}>
                     {scenario.title}
@@ -179,7 +177,7 @@ function SimulationPage() {
 
                     <div style={{ display: 'flex', gap: '1rem', marginTop: '1.5rem' }}>
                         <button className="btn-primary" onClick={() => navigate('/learn')}>
-                            ← Back to Hub
+                            Back to Hub
                         </button>
                         <button
                             style={{
@@ -192,7 +190,7 @@ function SimulationPage() {
                             }}
                             onClick={() => navigate('/learn/progress')}
                         >
-                            View Progress →
+                            View Progress
                         </button>
                     </div>
                 </div>

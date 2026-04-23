@@ -21,7 +21,6 @@ Also generates:
 Usage:
     python app/ml/evaluate_model.py --test-data app/ml/data/test.csv
 
-TODO (Phase 2): Implement after training script is complete.
 """
 
 from __future__ import annotations
@@ -41,7 +40,6 @@ def load_all_models(models_dir: str) -> dict:
     Returns:
         dict: Mapping of model_name (str) → loaded model object.
     """
-    # TODO (Phase 2): Implement with joblib.load() for each .pkl found
     raise NotImplementedError("evaluate_model.load_all_models is not yet implemented.")
 
 
@@ -54,7 +52,6 @@ def print_comparison_table(results: list[dict]) -> None:
                  Each dict should have keys: model, accuracy, precision, recall,
                  f1, roc_auc.
     """
-    # TODO (Phase 2): Implement with tabulate or manual string formatting
     raise NotImplementedError("evaluate_model.print_comparison_table is not yet implemented.")
 
 
@@ -68,7 +65,6 @@ def plot_roc_curves(models: dict, X_test, y_test, output_path: str) -> None:
         y_test:      True test labels.
         output_path: Path to save the output PNG file.
     """
-    # TODO (Phase 2): Implement with matplotlib + sklearn.metrics.roc_curve
     raise NotImplementedError("evaluate_model.plot_roc_curves is not yet implemented.")
 
 

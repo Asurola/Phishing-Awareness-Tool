@@ -6,7 +6,6 @@
  *   - "How it works" section with three feature cards
  *   - Backend health status check on mount
  *
- * TODO (Phase 3): Add quick stats for returning users (from localStorage).
  */
 
 import { Link } from 'react-router-dom'

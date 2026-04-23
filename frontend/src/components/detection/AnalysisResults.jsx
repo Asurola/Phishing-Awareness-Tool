@@ -3,17 +3,6 @@
  *
  * Top-level results panel shown after a successful API response.
  *
- * Layout (desktop):
- *   ┌─────────────────────────────────────────────────────┐
- *   │  Verdict banner (full width, colour-coded)           │
- *   ├──────────────────┬──────────────────────────────────┤
- *   │  RiskScoreGauge  │  Parsed email metadata summary   │
- *   │  (left col)      │  (right col)                     │
- *   ├──────────────────┴──────────────────────────────────┤
- *   │  Threat Indicators (flagged patterns)                │
- *   ├─────────────────────────────────────────────────────┤
- *   │  Recommendations                                     │
- *   └─────────────────────────────────────────────────────┘
  *
  * Props:
  *   result - full API response object
@@ -77,8 +66,8 @@ export default function AnalysisResults({ result, onReset }) {
 
     const vs = verdictStyle(verdict)
     const highCount = flags.filter(f => f.severity === 'high').length
-    const medCount  = flags.filter(f => f.severity === 'medium').length
-    const lowCount  = flags.filter(f => f.severity === 'low').length
+    const medCount = flags.filter(f => f.severity === 'medium').length
+    const lowCount = flags.filter(f => f.severity === 'low').length
 
     return (
         <div style={{ animation: 'fadeSlideUp 0.4s ease' }}>
@@ -129,7 +118,7 @@ export default function AnalysisResults({ result, onReset }) {
                     onMouseEnter={e => { e.currentTarget.style.borderColor = '#475569'; e.currentTarget.style.color = '#e2e8f0' }}
                     onMouseLeave={e => { e.currentTarget.style.borderColor = '#334155'; e.currentTarget.style.color = '#94a3b8' }}
                 >
-                    ← Analyse Another
+                    Analyse Another
                 </button>
             </div>
 
