@@ -75,21 +75,6 @@ const api = {
             body: JSON.stringify(body),
         })
     },
-
-    /**
-     * Perform a POST request with a FormData body (for file uploads).
-     *
-     * @param {string} endpoint - API path
-     * @param {FormData} formData - FormData object (Content-Type is set automatically)
-     * @returns {Promise<any>} Parsed JSON response
-     */
-    postForm(endpoint, formData) {
-        return request(endpoint, {
-            method: 'POST',
-            body: formData,
-            headers: {}, // Let browser set multipart Content-Type with boundary
-        })
-    },
 }
 
 export default api

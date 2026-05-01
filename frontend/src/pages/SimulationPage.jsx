@@ -82,7 +82,7 @@ function SimulationPage() {
             <div style={{ marginBottom: '1.5rem' }}>
                 <button
                     onClick={() => navigate('/learn')}
-                    style={{ background: 'none', border: 'none', color: '#64748b', cursor: 'pointer', fontSize: '0.875rem' }}
+                    style={{ background: '#1e293b', border: '1px solid #334155', color: '#94a3b8', cursor: 'pointer', padding: '0.4rem 0.5rem', borderRadius: '0.5rem', fontSize: '0.875rem' }}
                 >
                     Back to Hub
                 </button>

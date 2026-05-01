@@ -1,14 +1,4 @@
-"""
-app/api/health.py - Health check endpoint.
-
-Provides a simple `GET /api/health` endpoint that returns the operational
-status of the backend service including whether the ML model is loaded
-and how many training scenarios are available in the database.
-
-Endpoint:
-    GET /api/health
-    Response: { "status": "ok", "model_loaded": bool, "scenarios_count": int }
-"""
+"""GET /api/health endpoint -- reports backend status and ML model availability."""
 
 from flask import Blueprint, jsonify
 from ..models.progress import Scenario

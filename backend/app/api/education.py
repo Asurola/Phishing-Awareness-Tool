@@ -148,8 +148,7 @@ def get_progress(session_id: str):
             "total_attempted": int,
             "total_correct": int,
             "accuracy": float,
-            "by_difficulty": { "beginner": {...}, "intermediate": {...}, "advanced": {...} },
-            "weak_areas": list[str]
+            "by_difficulty": { "beginner": {...}, "intermediate": {...}, "advanced": {...} }
         }
     """
     try:
@@ -176,14 +175,11 @@ def get_progress(session_id: str):
                 "accuracy": (diff_correct / len(diff_attempts)) if diff_attempts else 0.0,
             }
 
-        weak_areas: list = []
-
         return jsonify({
             "total_attempted": total_attempted,
             "total_correct": total_correct,
             "accuracy": round(accuracy, 3),
             "by_difficulty": by_difficulty,
-            "weak_areas": weak_areas,
         }), 200
 
     except Exception as e:

@@ -1,13 +1,4 @@
-"""
-app/config.py - Application configuration classes.
-
-Defines configuration for different environments (development, testing, production)
-using a base class with environment-specific subclasses.
-
-Usage:
-    from app.config import config_map
-    app.config.from_object(config_map['development'])
-"""
+"""Application configuration classes for different environments."""
 
 import os
 from dotenv import load_dotenv
@@ -16,12 +7,7 @@ load_dotenv()
 
 
 class BaseConfig:
-    """
-    Base configuration with settings common to all environments.
-
-    All environment-specific configs inherit from this class and can
-    override individual settings as needed.
-    """
+    """Settings common to all environments."""
 
     # Flask secret key - must be set via environment variable in production
     SECRET_KEY: str = os.getenv("SECRET_KEY", "dev-secret-key-change-in-production")

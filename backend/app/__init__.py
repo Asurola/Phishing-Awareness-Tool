@@ -1,14 +1,4 @@
-"""
-app/__init__.py - Flask application factory.
-
-Creates and configures the Flask app instance using the factory pattern.
-This allows multiple app instances to be created for different environments
-(development, testing, production) and makes testing easier.
-
-Usage:
-    from app import create_app
-    app = create_app('development')
-"""
+"""Flask application factory."""
 
 from flask import Flask
 from .config import config_map

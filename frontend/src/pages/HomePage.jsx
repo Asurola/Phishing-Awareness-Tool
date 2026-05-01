@@ -4,22 +4,12 @@
  * Displays:
  *   - Hero section with tool name, tagline, and two primary CTAs
  *   - "How it works" section with three feature cards
- *   - Backend health status check on mount
  *
  */
 
 import { Link } from 'react-router-dom'
-import { useEffect, useState } from 'react'
-import api from '../api/client'
 
 function HomePage() {
-    const [healthStatus, setHealthStatus] = useState(null)
-
-    useEffect(() => {
-        api.get('/health')
-            .then(data => setHealthStatus(data))
-            .catch(() => setHealthStatus({ status: 'error' }))
-    }, [])
 
     return (
         <div style={{ minHeight: '100vh' }}>
@@ -75,19 +65,6 @@ function HomePage() {
                             </button>
                         </Link>
                     </div>
-
-                    {/* Health indicator
-                    {healthStatus && (
-                        <div style={{ marginTop: '2rem', fontSize: '0.8125rem', color: '#475569' }}>
-                            Backend:{' '}
-                            <span style={{ color: healthStatus.status === 'ok' ? '#22c55e' : '#ef4444' }}>
-                                {healthStatus.status === 'ok' ? '● Connected' : '● Offline'}
-                            </span>
-                            {healthStatus.status === 'ok' && (
-                                <> · {healthStatus.scenarios_count} training scenarios loaded</>
-                            )}
-                        </div>
-                    )} */}
                 </div>
             </section>
 

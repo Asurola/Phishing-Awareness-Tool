@@ -1,9 +1,4 @@
-"""
-run.py - Application entry point.
-
-Imports the Flask app factory and starts the development server.
-Run with: python run.py
-"""
+"""Entry point -- starts the Flask dev server. Run with: python run.py"""
 
 import os
 from dotenv import load_dotenv

@@ -1,9 +1,3 @@
-"""
-app/models/__init__.py - Models package initialiser.
+"""Import all models so SQLAlchemy registers them at startup."""
 
-Imports all model classes so they are registered with SQLAlchemy
-when `db.create_all()` is called in the app factory.
-"""
-
-from .analysis import AnalysisResult  # noqa: F401
 from .progress import UserProgress, Scenario  # noqa: F401

@@ -1,13 +1,4 @@
-"""
-app/extensions.py - Flask extension instances.
-
-Centralises extension initialisation so that they can be imported anywhere
-in the application without circular import issues.
-
-Extensions are created here without an app instance (using the "deferred init"
-pattern) and are bound to the app via `extension.init_app(app)` in the
-application factory (app/__init__.py).
-"""
+"""Flask extension instances (deferred init pattern)."""
 
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
