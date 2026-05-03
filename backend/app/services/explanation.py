@@ -7,7 +7,7 @@ recommendations. This is what turns the model from a black box into
 an educational tool - when a user sees "flagged as phishing", they
 also see *why*.
 
-The engine focuses exclusively on the 25 engineered features; TF-IDF
+The engine focuses exclusively on the 22 engineered features; TF-IDF
 terms are deliberately omitted because they are dense, numerous, and
 not meaningful to end users ("body_account: 0.17" explains nothing).
 
@@ -45,7 +45,7 @@ def generate_flags(
     Build the list of threat flags triggered by the extracted features.
 
     Args:
-        engineered: The 25 engineered features from the classifier.
+        engineered: The 22 engineered features from the classifier.
         probability: The model's P(phishing) for this email.
 
     Returns:

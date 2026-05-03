@@ -8,7 +8,7 @@ training. Any divergence between training and serving features would
 silently break predictions, so the three core extractors below must
 mirror the notebook exactly.
 
-Feature groups (25 engineered features total):
+Feature groups (22 engineered features total):
   - Header features (5):  sender/reply mismatch, SPF/DKIM, received hops,
                            display-name spoofing
   - Body features (11):   urgency keywords, HTML signals, URL counts,
@@ -318,7 +318,7 @@ def extract_all_engineered_features(parsed_email: dict[str, Any]) -> dict[str, A
         parsed_email: Output of `email_parser.parse_raw_email()`.
 
     Returns:
-        Flat dictionary of 25 engineered features.
+        Flat dictionary of 22 engineered features.
     """
     features: dict[str, Any] = {}
     features.update(extract_header_features(parsed_email))

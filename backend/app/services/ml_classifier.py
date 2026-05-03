@@ -121,7 +121,7 @@ def classify(parsed_email: dict[str, Any]) -> dict[str, Any]:
     Run the full inference pipeline on a parsed email.
 
     Pipeline:
-      1. Extract 25 engineered features (header/body/URL).
+      1. Extract 22 engineered features (header/body/URL).
       2. Transform subject and body through the pre-fitted TF-IDF
          vectorizers (100 + 200 features).
       3. Reindex into the training column order.
@@ -134,7 +134,7 @@ def classify(parsed_email: dict[str, Any]) -> dict[str, Any]:
         Dictionary with:
           - 'prediction':   int (0 = legitimate, 1 = phishing)
           - 'probability':  float (model's P(phishing))
-          - 'engineered':   dict of the 25 engineered features with their
+          - 'engineered':   dict of the 22 engineered features with their
                             active values (for the explanation engine)
           - 'feature_vector': dict of ALL 322 features (for diagnostics)
 

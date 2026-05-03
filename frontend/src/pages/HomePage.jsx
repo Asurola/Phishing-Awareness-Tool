@@ -98,7 +98,7 @@ function HomePage() {
                             {
                                 icon: '🔬',
                                 title: '2. Analyse',
-                                description: 'The tool extracts 31 phishing features across URLs, headers, and content.',
+                                description: 'The tool extracts 22 phishing features across URLs, headers, and content.',
                                 color: '#a78bfa',
                             },
                             {
